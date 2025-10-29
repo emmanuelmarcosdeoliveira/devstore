@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <section>
       <div className="gap-6 grid grid-cols-9 grid-rows-6 max-h-[860px]">
         <Link
-          href={"/"}
+          href={'/'}
           className="bg-zinc-900 col-span-6 flex group items-end justify-center overflow-hidden relative rounded-lg row-span-6"
         >
           <Image
@@ -26,7 +26,7 @@ export default function Home() {
           </div>
         </Link>
         <Link
-          href={"/"}
+          href={'/'}
           className="bg-zinc-900 col-span-3 flex group items-end justify-center overflow-hidden relative rounded-lg row-span-3"
         >
           <Image
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </Link>
         <Link
-          href={"/"}
+          href={'/'}
           className="bg-zinc-900 col-span-3 flex group items-end justify-center overflow-hidden relative rounded-lg row-span-3"
         >
           <Image
@@ -69,5 +69,5 @@ export default function Home() {
         </Link>
       </div>
     </section>
-  );
+  )
 }

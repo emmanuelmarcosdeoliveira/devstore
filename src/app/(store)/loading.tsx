@@ -1,5 +1,5 @@
 const LoadingStore = () => {
-  return <p>carregando...</p>;
-};
+  return <p>carregando...</p>
+}
 
-export default LoadingStore;
+export default LoadingStore

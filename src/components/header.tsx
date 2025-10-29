@@ -1,6 +1,6 @@
-import { Search, ShoppingBag } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Search, ShoppingBag } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 const Header = () => {
   return (
     <div className="flex items-center justify-between">
@@ -35,6 +35,6 @@ const Header = () => {
         </Link>
       </div>
     </div>
-  );
-};
-export default Header;
+  )
+}
+export default Header
