@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 async function getProduct(slug: string): Promise<Product> {
   const response = await api(`/products/${slug}`, {
-    cache: 'no-store'
+    next: { revalidate: 60 * 60 }
   })
   const product = await response.json()
   return product
@@ -13,6 +13,12 @@ async function getProduct(slug: string): Promise<Product> {
 
 type Props = {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  const response = await api('/products/featured')
+  const products = (await response.json()) as Product[]
+  return products.map((product) => ({ slug: product.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
