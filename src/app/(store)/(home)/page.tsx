@@ -11,6 +11,11 @@ async function getFeaturedProducts(): Promise<Product[]> {
   return products
 }
 
+export const metadata = {
+  title: 'Home',
+  description: 'E-commerce home page'
+}
+
 export default async function Home() {
   const [hightLightedProduct, ...otherProducts] = await getFeaturedProducts()
 

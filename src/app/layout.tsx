@@ -3,8 +3,10 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'DevStore',
-  description: 'E-commerce'
+  title: {
+    template: '%s | DevStore',
+    default: 'DevStore - Your Online Tech Store'
+  }
 }
 
 const inter = Inter({
