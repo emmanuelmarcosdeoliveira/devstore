@@ -1,6 +1,7 @@
-import { Search, ShoppingBag } from 'lucide-react'
+import { Search } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import CardWidget from './card-widget'
 const Header = () => {
   return (
     <div className="flex items-center justify-between">
@@ -18,10 +19,7 @@ const Header = () => {
         </form>
       </div>
       <div className="flex gap-4 items-center">
-        <div className="flex gap-2 items-center">
-          <ShoppingBag className="h-4 w-4" />
-          <span className="text-sm">Cart(0)</span>
-        </div>
+        <CardWidget />
         <div className="bg-zinc-700 h-4 w-px" />
         <Link href="/" className="flex gap-2 hover:underline items-center">
           <span className="text-sm">Account</span>

@@ -1,3 +1,4 @@
+import AddToCardButton from '@/components/add-to-cart-button'
 import { api } from '@/data/api'
 import { Product } from '@/data/types/product'
 import type { Metadata } from 'next'
@@ -112,9 +113,8 @@ const productPage = async ({ params }: Props) => {
             </button>
           </div>
         </div>
-        <button className="bg-emerald-600 flex font-semibold h-12 items-center justify-center mt-8 rounded-full text-white">
-          Adicionar ao carrinho
-        </button>
+
+        <AddToCardButton productId={product.id} />
       </div>
     </section>
   )
