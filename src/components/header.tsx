@@ -1,7 +1,7 @@
-import { Search } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import CardWidget from './card-widget'
+import SearchForm from './search-form'
 const Header = () => {
   return (
     <div className="flex items-center justify-between">
@@ -9,14 +9,8 @@ const Header = () => {
         <Link className="font-extrabold text-2xl text-white" href="/">
           devstore
         </Link>
-        <form className="bg-zinc-900 flex gap-3 items-center px-5 py-3 ring-bg-zinc-700 rounded-full w-[320px]">
-          <Search className="h-5 text-zinc-700 w-5" />
-          <input
-            className="bg-transparent flex-1 outline-none placeholder:text-zinc-500 text-sm"
-            type="text"
-            placeholder="Buscar produto"
-          />
-        </form>
+
+        <SearchForm />
       </div>
       <div className="flex gap-4 items-center">
         <CardWidget />
