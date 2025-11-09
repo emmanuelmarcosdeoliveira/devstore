@@ -82,31 +82,31 @@ const productPage = async ({ params }: Props) => {
           <span className="block font-semibold">Tamanhos</span>
           <div className="flex gap-2">
             <button
-              className="bg-zinc-800 border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
+              className="bg-zinc-800 cursor-pointer border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
               type="button"
             >
               P
             </button>
             <button
-              className="bg-zinc-800 border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
+              className="bg-zinc-800 border cursor-pointer border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
               type="button"
             >
               M
             </button>
             <button
-              className="bg-zinc-800 border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
+              className="bg-zinc-800 border cursor-pointer border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
               type="button"
             >
               G
             </button>
             <button
-              className="bg-zinc-800 border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
+              className="bg-zinc-800 border cursor-pointer border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
               type="button"
             >
               GG
             </button>
             <button
-              className="bg-zinc-800 border border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
+              className="bg-zinc-800 border cursor-pointer border-zinc-700 flex font-semibold h-8 items-center justify-center rounded-full text-sm w-14"
               type="button"
             >
               XG
