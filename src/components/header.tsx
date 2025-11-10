@@ -1,7 +1,11 @@
+'use client'
+import LoadingSearch from '@/app/(store)/(home)/search/loading'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import CardWidget from './card-widget'
 import SearchForm from './search-form'
+
 const Header = () => {
   return (
     <div className="flex items-center justify-between">
@@ -9,8 +13,9 @@ const Header = () => {
         <Link className="font-extrabold text-2xl text-white" href="/">
           devstore
         </Link>
-
-        <SearchForm />
+        <Suspense fallback={<LoadingSearch />}>
+          <SearchForm />
+        </Suspense>
       </div>
       <div className="flex gap-4 items-center">
         <CardWidget />

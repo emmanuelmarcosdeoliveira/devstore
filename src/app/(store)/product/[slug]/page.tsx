@@ -35,7 +35,6 @@ const productPage = async ({ params }: Props) => {
   const { slug } = await params
   const product = await getProduct(slug)
 
-  console.log(`Products`, product)
   return (
     <section className="gap-6 grid grid-cols-3 max-h-[860px]">
       <div className="col-span-2 overflow-hidden">

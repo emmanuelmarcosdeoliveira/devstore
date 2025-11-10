@@ -7,7 +7,7 @@ const SearchForm = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const query = searchParams.get('q')
+  const query = searchParams.get('q') ?? ''
 
   function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -15,12 +15,10 @@ const SearchForm = () => {
 
     const data = Object.fromEntries(formData)
 
-    const query = data.q
+    const query = data.q?.toString().trim()
 
-    if (!query) {
-      return null
-    }
-    router.push(` /search?q=${query}`)
+    if (!query) return
+    router.push(`/search?q=${query}`)
   }
 
   return (
