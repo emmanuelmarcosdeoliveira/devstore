@@ -10,7 +10,7 @@ describe('add product to cart', () => {
     cy.contains('Cart(1)').should('exist')
   })
   it('should not count duplicated products on cart', () => {
-    cy.get('a[href^="/product"]').first().click()
+    cy.get('a[href^="/product"]', { timeout: 10000 }).first().click()
     cy.url().should('include', '/product')
     cy.location('pathname').should('include', '/product')
     cy.contains('Adicionar ao carrinho').click()

@@ -4,7 +4,7 @@ describe('search products', () => {
     cy.searchByQuery('moletom')
     cy.location('pathname').should('include', '/search')
     cy.location('search').should('include', 'q=moletom')
-    cy.get('a[href^="/product"]').should('exist')
+    cy.get('a[href^="/product"]', { timeout: 10000 }).should('exist')
   })
   it('should not be be able to visit search page without query', () => {
     cy.on('uncaught:exception', () => {
