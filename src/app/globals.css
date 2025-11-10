@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme {
+  --grid-row-app: min-content max-content;
+}
+
+body {
+  font-family: var(--font-inter);
+}
