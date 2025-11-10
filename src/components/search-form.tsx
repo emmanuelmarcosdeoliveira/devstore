@@ -36,7 +36,6 @@ const SearchForm = () => {
           placeholder="Buscar produto ..."
           className="bg-transparent flex-1 focus:bg-transparent focus:outline-none placeholder:text-zinc-500 text-sm"
           type="text"
-          required
         />
       </form>
     </>
