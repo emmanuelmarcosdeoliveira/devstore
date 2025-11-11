@@ -1,31 +1,68 @@
-name: Cypress Tests
+name: E2E Tests
 
-on: push
+on: [push, pull_request]
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # 1️⃣ Faz o checkout do código
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install Pnpm
+      # 2️⃣ Instala o pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
           run_install: false
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        env:
-          NEXT_PUBLIC_API_BASE_URL: 'https://devstore-api-lilac.vercel.app/'
-          APP_URL: 'http://localhost:3000'
+      # 3️⃣ Instala Node.js com cache do pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          build: npm run build
-          start: npm start
+          node-version: 22
+          cache: 'pnpm'
+
+      # 4️⃣ Instala dependências
+      - name: Install dependencies
+        run: pnpm install
+
+      # 5️⃣ Cache do binário do Cypress
+      - name: Cache Cypress binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      # 6️⃣ Instala binário do Cypress
+      - name: Install Cypress binary
+        run: pnpm cypress install
+
+      # 7️⃣ Build do projeto — agora com as variáveis definidas
+      - name: Build project
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          APP_URL: 'http://localhost:3000'
+          NEXT_PUBLIC_API_BASE_URL: 'https://devstore-api-lilac.vercel.app/'
+
+      # 8️⃣ Inicia o servidor em segundo plano
+      - name: Start Next.js server
+        run: pnpm start &
+        env:
+          NODE_ENV: production
+          APP_URL: 'http://localhost:3000'
+          NEXT_PUBLIC_API_BASE_URL: 'https://devstore-api-lilac.vercel.app/'
+
+      # 9️⃣ Aguarda o servidor estar disponível
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:3000
+
+      # 🔟 Executa os testes E2E
+      - name: Run Cypress tests
+        run: pnpm cypress run
+        env:
+          APP_URL: 'http://localhost:3000'
+          NEXT_PUBLIC_API_BASE_URL: 'https://devstore-api-lilac.vercel.app/'
