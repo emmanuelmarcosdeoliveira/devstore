@@ -17,9 +17,9 @@
 
 ## 🎯 Menu Rápido
 
-| 📋 Sobre                   | 🚀 Setup                             | 📦 Tecnologias                    | 🏗️ Arquitetura                   | 🧪 Testes         | 👨‍💻 Contribuir              |
-| -------------------------- | ------------------------------------ | --------------------------------- | -------------------------------- | ----------------- | -------------------------- |
-| [Clique](#sobre-o-projeto) | [Clique](#instalação-e-configuração) | [Clique](#tecnologias-utilizadas) | [Clique](#padrões-e-arquitetura) | [Clique](#testes) | [Clique](#como-contribuir) |
+| 📋 Sobre                    | 🚀 Setup                              | 📦 Tecnologias                     | 🏗️ Arquitetura                     | 🧪 Testes          | 👨‍💻 Contribuir               |
+| --------------------------- | ------------------------------------- | ---------------------------------- | ---------------------------------- | ------------------ | --------------------------- |
+| [Clique](#-sobre-o-projeto) | [Clique](#-instalação-e-configuração) | [Clique](#-tecnologias-utilizadas) | [Clique](#️-padrões-e-arquitetura) | [Clique](#-testes) | [Clique](#-como-contribuir) |
 
 ---
 
@@ -186,72 +186,6 @@ devstore/
 
 ---
 
-## 📊 Fluxo da Aplicação
-
-Diagrama do fluxo principal de navegação e interação do usuário na DevStore:
-
-```mermaid
-graph TD
-    A["👤 Usuário Acessa a Aplicação"] --> B["🏠 Página Inicial"]
-
-    B --> C{Ação do Usuário}
-
-    C -->|Busca por Produto| D["🔍 Busca"]
-    C -->|Visualiza Catálogo| E["📦 Listagem de Produtos"]
-
-    D --> F["🛒 Resultado da Busca"]
-    E --> F
-
-    F --> G{Seleciona Produto}
-
-    G -->|Visualiza Detalhes| H["📄 Página do Produto"]
-    G -->|Volta|
-
-    H --> I{Ação na Página}
-
-    I -->|Adiciona ao Carrinho| J["🛒 Carrinho Atualizado"]
-    I -->|Continua Comprando| B
-    I -->|Voltar| F
-
-    J --> K{Continua Comprando?}
-
-    K -->|Sim| B
-    K -->|Não - Finaliza| L["✅ Compra Concluída"]
-
-    style A fill:#3178C6,stroke:#000,stroke-width:2px,color:#fff
-    style B fill:#06B6D4,stroke:#000,stroke-width:2px,color:#fff
-    style D fill:#F59E0B,stroke:#000,stroke-width:2px,color:#fff
-    style E fill:#F59E0B,stroke:#000,stroke-width:2px,color:#fff
-    style F fill:#10B981,stroke:#000,stroke-width:2px,color:#fff
-    style H fill:#8B5CF6,stroke:#000,stroke-width:2px,color:#fff
-    style J fill:#EF4444,stroke:#000,stroke-width:2px,color:#fff
-    style L fill:#059669,stroke:#000,stroke-width:2px,color:#fff
-```
-
-### Fluxo de Dados (arquitetura)
-
-```mermaid
-graph LR
-    A["📱 Client Side<br/>React Components"]
-    B["🔄 Context API<br/>Cart State"]
-    C["🌐 API Routes<br/>Next.js"]
-    D["📊 JSON Data<br/>Products DB"]
-
-    A -->|Requisita| C
-    C -->|Busca| D
-    D -->|Retorna| C
-    C -->|JSON Response| A
-    A -->|Atualiza| B
-    B -->|State Global| A
-
-    style A fill:#3178C6,stroke:#000,stroke-width:2px,color:#fff
-    style B fill:#EF4444,stroke:#000,stroke-width:2px,color:#fff
-    style C fill:#06B6D4,stroke:#000,stroke-width:2px,color:#fff
-    style D fill:#10B981,stroke:#000,stroke-width:2px,color:#fff
-```
-
----
-
 ## 🧪 Testes
 
 ### Testes E2E com Cypress
@@ -274,7 +208,7 @@ pnpm cypress run
 
 ## 📖 Aprendizado e Fonte
 
-Este projeto foi desenvolvido como material de estudo baseado na formação **Ignite** da **RocketSeat**, um dos maiores educadores em desenvolvimento web do Brasil.
+Este projeto foi desenvolvido como material de estudo baseado na formação da **RocketSeat**.
 
 Para aprender mais: [RocketSeat](https://www.rocketseat.com.br/)
 
